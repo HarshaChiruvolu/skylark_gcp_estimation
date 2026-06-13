@@ -7,7 +7,7 @@ import random
 # CONFIGURATION
 # ==========================================
 JSON_PATH = 'data/gcp_marks.json'
-RAW_IMAGES_DIR = 'data/' # Assuming you extracted the dataset folders here
+RAW_IMAGES_DIR = 'data/' 
 YOLO_DIR = 'data/yolo_dataset'
 
 # Image dimensions based on assignment PDF
@@ -40,11 +40,11 @@ def main():
     print("Initializing YOLO dataset preparation...")
     create_dirs()
     
-    # Load JSON
+    # Loading JSON
     with open(JSON_PATH, 'r') as f:
         data = json.load(f)
         
-    # Create an 80/20 Train/Validation split
+    # Creating an 80/20 Train/Validation split
     items = list(data.items())
     random.seed(42) # For reproducibility
     random.shuffle(items)
@@ -66,7 +66,7 @@ def main():
                 missing_img_count += 1
                 continue
                 
-            # DEFENSIVE PROGRAMMING: Safely extract data using .get() instead of direct keys
+            # DEFENSIVE PROGRAMMING:  extracting data using .get() instead of direct keys
             mark_info = info.get('mark', {})
             x_center = mark_info.get('x')
             y_center = mark_info.get('y')
