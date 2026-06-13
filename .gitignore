@@ -1,0 +1,15 @@
+# Ignore dataset images and labels
+data/
+
+# Ignore model weights and runs
+weights/
+runs/
+*.pt
+
+# Ignore Python cache and environments
+__pycache__/
+.env
+venv/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
